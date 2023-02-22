@@ -1,0 +1,61 @@
+:root {
+    font-size: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Calibri sans-serif;
+    box-sizing: border-box;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    background-color: white;
+}
+
+.container aside {
+    width: 20%;
+    height: 100%;
+    background-color: #1a74b0;
+    padding: 30px;
+    overflow: auto scroll;
+}
+
+.container .table-container {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../assets/background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 600px;
+    background-position: 100% 100%;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid gray;
+}
+
+.grade td {
+    width: 16px;
+    height: 16px;
+    border: 1px solid gray;
+    font-size: 5px
+}
+
+.grade.not-grade td {
+    border: 1px solid transparent !important;
+}
+
+.grade td.active {
+    background-color: #111111;
+}

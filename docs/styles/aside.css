@@ -1,0 +1,52 @@
+#size-control {
+    width: 300px !important;
+    min-width: 300px !important;
+    max-width: 300px !important;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+aside label {
+    color: #9bb9c7;
+    line-height: 4rem;
+    margin-top: 20px;
+}
+
+aside select, aside input, aside textarea, aside button {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+aside button, aside input[type=button] {
+    transition: all 0.2s;
+}
+
+aside button:hover, aside input[type=button]:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+.double-input {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+aside .double-input input {
+    width: 48%;
+    max-width: 48%;
+    min-width: 48%;
+}
+
+#check-grade {
+    width: auto !important;
+    min-width: auto !important;
+    max-width: auto !important;
+}
