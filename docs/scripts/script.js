@@ -1,5 +1,5 @@
 let LENGTH = 30;
-let PONTOS = [];
+let OBJETO = [];
 
 class Ponto {
     x;
@@ -77,7 +77,7 @@ function criarGrade(length = LENGTH) {
 criarGrade();
 
 function desenharObjeto(pontos = []) {
-    PONTOS = pontos;
+    OBJETO = pontos;
     criarGrade();
     const table = document.getElementById("grade");
     for (let ponto of pontos) {
@@ -98,6 +98,8 @@ function iniciarControles() {
     btnCreate.addEventListener('click', criarNovoObjeto);
     const btnTranslate = document.getElementById("btn-translate");
     btnTranslate.addEventListener('click', transladarObjeto);
+    const btnRotate = document.getElementById("btn-rotate");
+    btnRotate.addEventListener('click', rotacionarObjeto);
     const btnClean = document.getElementById("btn-clean");
     btnClean.addEventListener('click', reiniciarGrade);
     const sizeControl = document.getElementById("size-control");
@@ -112,7 +114,7 @@ function escalarGrade(e) {
     const value = e.target.value;
     LENGTH = value;
     criarGrade();
-    desenharObjeto(PONTOS);
+    desenharObjeto(OBJETO);
 }
 
 function selecionarObjeto(e) {
@@ -145,21 +147,48 @@ function transladarObjeto() {
         alert("Insira valores válidos de x e y.");
         return;
     }
-    if(PONTOS.length === 0) {
+    if(OBJETO.length === 0) {
         alert("Selecione ou crie um objeto.");
         return;
     }
     else {
-        for(let ponto of PONTOS) {
+        for(let ponto of OBJETO) {
             ponto.x += x;
             ponto.y += y;
         }
-        desenharObjeto(PONTOS);
+        desenharObjeto(OBJETO);
     }
 }
 
+function rotacionarObjeto() {
+    let angulo = 0;
+    try {
+        angulo = Number(document.getElementById("rotate-control").value);
+        if(angulo < 0 || angulo > 360) {
+            throw new Error();
+        }
+    }
+    catch(err) {
+        alert("Insira valor válido do ângulo.");
+        return;
+    }
+    const radianos = (angulo * Math.PI) / 180;
+    const matrizRotacao = [
+        [Math.cos(radianos), -Math.sin(radianos)],
+        [Math.sin(radianos), Math.cos(radianos)]
+    ];
+    let objetoRotacionado = [];
+    for(let ponto of OBJETO) {
+        let x = Math.round((matrizRotacao[0][0] * ponto.x) + (matrizRotacao[0][1] * ponto.y));
+        let y = Math.round((matrizRotacao[1][0] * ponto.x) + (matrizRotacao[1][1] * ponto.y));
+        objetoRotacionado.push(new Ponto(x, y));
+    }
+    console.log(objetoRotacionado)
+    desenharObjeto(objetoRotacionado);
+}
+
 function reiniciarGrade() {
-    PONTOS = [];
+    OBJETO = [];
     criarGrade()
 }
 
