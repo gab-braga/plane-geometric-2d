@@ -20,7 +20,7 @@
 }
 
 .container aside {
-    width: 20%;
+    width: clamp(300px, 20%, 400px);
     height: 100%;
     background-color: #1a74b0;
     padding: 30px;
@@ -28,7 +28,7 @@
 }
 
 .container .table-container {
-    width: 80%;
+    flex: 1;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -38,6 +38,7 @@
     background-attachment: fixed;
     background-size: 600px;
     background-position: 100% 100%;
+    padding: 30px;
 }
 
 table {
@@ -58,4 +59,14 @@ table {
 
 .grade td.active {
     background-color: #111111;
+}
+
+@media(max-width: 664px) {
+    .container {
+        flex-direction: column;
+    }
+    .container aside {
+        width: 100%;
+        overflow: scroll;
+    }
 }
