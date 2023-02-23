@@ -228,11 +228,11 @@ function rotacionarObjeto() {
 }
 
 function escalonarObjeto() {
-    let x, y;
+    let scaleX, scaleY;
     try {
-        x = Number(document.getElementById("scalling-control-x").value);
-        y = Number(document.getElementById("scalling-control-y").value);
-        if(( x && y ) <= 0 ) 
+        scaleX = Number(document.getElementById("scalling-control-x").value);
+        scaleY = Number(document.getElementById("scalling-control-y").value);
+        if(( scaleX && scaleY ) <= 0 ) 
             throw new Error();    
     }
     catch(err) {
@@ -244,13 +244,21 @@ function escalonarObjeto() {
         return;
     }
     else {
-
+        let objetoEscalonado = [];
         for(let ponto of OBJETO) {
-            Math.round(ponto.x *= x);
-            Math.round(ponto.y *= y);
+            let x = Math.round(ponto.x * scaleX);
+            let y = Math.round(ponto.y * scaleY);
+            objetoEscalonado.push(new Ponto(x, y));
         }
-
-       desenharObjeto(OBJETO);
+        const centroideObjeto = obterCentroide();
+        const centroideObjetoEscalonado = obterCentroide(objetoEscalonado);
+        const direfencaX = centroideObjetoEscalonado.x - centroideObjeto.x;
+        const direfencaY = centroideObjetoEscalonado.y - centroideObjeto.y;
+        for(let ponto of objetoEscalonado) {
+            ponto.x -= direfencaX;
+            ponto.y -= direfencaY;
+        }
+       desenharObjeto(objetoEscalonado);
     }
 }
 
