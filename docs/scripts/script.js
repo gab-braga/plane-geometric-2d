@@ -61,6 +61,31 @@ const TRIANGLE = [
     new Ponto(21, 25),
 ];
 
+const LOZENGE = [
+    new Ponto(17, 18),
+    new Ponto(16, 17),
+    new Ponto(15, 16),
+    new Ponto(14, 15),
+    new Ponto(18, 19),
+    new Ponto(19, 18),
+    new Ponto(20, 17),
+    new Ponto(21, 16),
+    new Ponto(22, 15),
+    new Ponto(21, 14),
+    new Ponto(20, 13),
+    new Ponto(19, 12),
+    new Ponto(18, 11),
+    new Ponto(15, 14),
+    new Ponto(16, 13),
+    new Ponto(17, 12),
+]
+const POINTS = [
+    new Ponto(1, 3),
+    new Ponto(1, 1),
+    new Ponto(3, 1),
+    new Ponto(3, 3)
+]
+
 function criarGrade(length = LENGTH) {
     const table = document.getElementById("grade");
     let grade = "";
@@ -98,6 +123,8 @@ function iniciarControles() {
     btnCreate.addEventListener('click', criarNovoObjeto);
     const btnTranslate = document.getElementById("btn-translate");
     btnTranslate.addEventListener('click', transladarObjeto);
+    const btnScalling = document.getElementById('btn-scalling');
+    btnScalling.addEventListener('click', escalonarObjeto)
     const btnRotate = document.getElementById("btn-rotate");
     btnRotate.addEventListener('click', rotacionarObjeto);
     const btnClean = document.getElementById("btn-clean");
@@ -125,6 +152,12 @@ function selecionarObjeto(e) {
             break;
         case "triangle":
             desenharObjeto(TRIANGLE);
+            break;
+        case "lozenge":
+            desenharObjeto(LOZENGE);
+            break;
+        case "points":
+            desenharObjeto(POINTS)
             break;
     }
 }
@@ -192,6 +225,33 @@ function rotacionarObjeto() {
         ponto.y -= direfencaY;
     }
     desenharObjeto(objetoRotacionado);
+}
+
+function escalonarObjeto() {
+    let x, y;
+    try {
+        x = Number(document.getElementById("scalling-control-x").value);
+        y = Number(document.getElementById("scalling-control-y").value);
+        if(( x && y ) <= 0 ) 
+            throw new Error();    
+    }
+    catch(err) {
+        alert("Insira valores válidos de x e y.");
+        return;
+    }
+    if(OBJETO.length === 0) {
+        alert("Selecione ou crie um objeto.");
+        return;
+    }
+    else {
+
+        for(let ponto of OBJETO) {
+            Math.round(ponto.x *= x);
+            Math.round(ponto.y *= y);
+        }
+
+       desenharObjeto(OBJETO);
+    }
 }
 
 function reiniciarGrade() {

@@ -23,6 +23,8 @@
           <option selected disabled value="">Selecione um objeto</option>
           <option value="square">Quadrado</option>
           <option value="triangle">Triângulo</option>
+          <option value="lozenge">Losango</option>
+          <option value="points">Quadrado 4 Pontos</option>
         </select>
         <label for="coordinat-control">Criar novo objeto</label>
         <textarea
@@ -39,6 +41,14 @@
           </div>
         </label>
         <input type="button" value="Transladar" id="btn-translate" />
+        <label>
+          Escalonar objeto
+          <div class="double-input">
+            <input id="scalling-control-x" type="number" placeholder="X" />
+            <input id="scalling-control-y" type="number" placeholder="Y" />
+          </div>
+        </label>
+        <input type="button" value="Escalonar" id="btn-scalling" />
         <label for="rotate-control">Rotacionar objeto</label>
         <input id="rotate-control" type="number" placeholder="45" />
         <input type="button" value="Rotacionar" id="btn-rotate" />
