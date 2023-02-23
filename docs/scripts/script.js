@@ -183,7 +183,14 @@ function rotacionarObjeto() {
         let y = Math.round((matrizRotacao[1][0] * ponto.x) + (matrizRotacao[1][1] * ponto.y));
         objetoRotacionado.push(new Ponto(x, y));
     }
-    console.log(objetoRotacionado)
+    const centroideObjeto = obterCentroide();
+    const centroideObjetoRotacionado = obterCentroide(objetoRotacionado);
+    const direfencaX = centroideObjetoRotacionado.x - centroideObjeto.x;
+    const direfencaY = centroideObjetoRotacionado.y - centroideObjeto.y;
+    for(let ponto of objetoRotacionado) {
+        ponto.x -= direfencaX;
+        ponto.y -= direfencaY;
+    }
     desenharObjeto(objetoRotacionado);
 }
 
@@ -201,4 +208,15 @@ function removerBordaGrade(e) {
     else {
         table.classList.add("not-grade");
     }
+}
+
+function obterCentroide(objeto = OBJETO) {
+    let minX = Math.min(...objeto.map(ponto => ponto.x));
+    let maxX = Math.max(...objeto.map(ponto => ponto.x));
+    let minY = Math.min(...objeto.map(ponto => ponto.y));
+    let maxY = Math.max(...objeto.map(ponto => ponto.y));
+    let x = Math.round((minX+maxX)/2);
+    let y = Math.round((minY+maxY)/2);
+    let centroide = new Ponto(x, y);
+    return centroide;
 }
