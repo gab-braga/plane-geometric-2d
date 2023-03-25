@@ -1,0 +1,66 @@
+@import url("./colors.css");
+
+:root {
+    font-size: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Calibri sans-serif;
+    box-sizing: border-box;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
+}
+
+.body {
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    background-color: #f1f1f1;
+}
+
+.body .table-container {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../assets/XeY.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 600px;
+    background-position: 95% 95%;
+    background-size: 200px 200px;
+    padding: 30px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.grade td {
+    width: 16px;
+    height: 16px;
+    border: 1px solid gray;
+    font-size: 5px;
+}
+
+.grade.not-grade td {
+    border: 1px solid transparent !important;
+}
+
+.grade td.active {
+    background-color: #111111;
+}
+
+@media(max-width: 664px) {
+    .body {
+        flex-direction: column;
+    }
+    .body aside {
+        width: 100%;
+        overflow: scroll;
+    }
+}

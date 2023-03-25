@@ -1,0 +1,24 @@
+@import url("./colors.css");
+
+.navbar {
+    background-color: var(--color-primary);
+}
+
+.navbar-brand {
+    font-size: 3rem;
+    color: var(--color-secondary);
+}
+
+.offcanvas {
+    background-color: var(--color-primary);
+}
+
+.offcanvas-title {
+    font-size: 2rem;
+    color: var(--color-secondary);
+}
+
+.bi.bi-x-lg,
+.bi.bi-list {
+    color: var(--color-secondary);
+}
