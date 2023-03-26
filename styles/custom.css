@@ -4,7 +4,8 @@
     background-color: var(--color-primary);
 }
 
-.navbar-brand {
+.navbar-brand,
+.navbar-brand:hover {
     font-size: 3rem;
     color: var(--color-secondary);
 }
@@ -21,4 +22,9 @@
 .bi.bi-x-lg,
 .bi.bi-list {
     color: var(--color-secondary);
+}
+
+.btn.animate-link {
+    font-size: 2rem;
+    width: 100%;
 }

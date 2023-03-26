@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plano Geométrico 2D</title>
+  <link rel="stylesheet" href="./bootstrap-icons-1.10.3/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./bootstrap-5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./styles/main.css" />
+  <link rel="stylesheet" href="./styles/aside.css" />
+  <link rel="stylesheet" href="./styles/custom.css">
+</head>
+
+<body>
+  <div class="body">
+    <header>
+      <nav class="navbar fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Animação 2D</a>
+          <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+            aria-controls="offcanvasScrolling">
+            <i class="bi bi-list"></i>
+          </button>
+          <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+            id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Painel de Controle</h5>
+              <button type="button" class="btn" data-bs-dismiss="offcanvas" aria-label="Close">
+                <i class="bi bi-x-lg"></i>
+              </button>
+            </div>
+            <div class="offcanvas-body">
+              <dic class="aside-control">
+                <label for="object-control">Cor</label>
+                <input type="color" value="#0000FF" id="color-cell" />
+                <!-- <button class="btn btn-primary" id="print">Imprimir</button> -->
+              </dic>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="table-container">
+      <table>
+        <tbody id="grade" class="grade"></tbody>
+      </table>
+    </div>
+  </div>
+  <script type="module" src="./scripts/animate.js"></script>
+  <script src="./bootstrap-5.3.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

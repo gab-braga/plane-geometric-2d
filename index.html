@@ -21,22 +21,21 @@
     <header>
       <nav class="navbar fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">Plano Geométrico 2D</a>
-          <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <a class="navbar-brand" href="/">Animação 2D</a>
+          <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+            aria-controls="offcanvasScrolling">
             <i class="bi bi-list"></i>
           </button>
-          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+            id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
             <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Painel de Controle</h5>
+              <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Painel de Controle</h5>
               <button type="button" class="btn" data-bs-dismiss="offcanvas" aria-label="Close">
                 <i class="bi bi-x-lg"></i>
               </button>
             </div>
             <div class="offcanvas-body">
-
-              <div class="aside-control">
+              <dic class="aside-control">
                 <label for="object-control">Escala da grade</label>
                 <input id="size-control" type="range" value="30" min="1" max="100" />
                 <label for="object-control">Objeto</label>
@@ -74,7 +73,9 @@
                 <label for="btn-clean">Remover objeto</label>
                 <input type="button" value="Remover" id="btn-clean" />
                 <label>Grade <input type="checkbox" checked id="check-grade" /></label>
-              </div>
+                <a href="/animate.html" type="button" class="btn btn-primary animate-link mt-3">
+                  Animar <span class="badge text-bg-danger">Novo</span>
+                </a>
             </div>
           </div>
         </div>
@@ -86,7 +87,7 @@
       </table>
     </div>
   </div>
-  <script type="module" src="./scripts/script.js"></script>
+  <script type="module" src="./scripts/main.js"></script>
   <script src="./bootstrap-5.3.0/js/bootstrap.min.js"></script>
 </body>
 
