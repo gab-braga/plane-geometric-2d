@@ -1,4 +1,4 @@
-import { Ponto } from "./objects.js";
+import { Ponto } from "../objects.js";
 
 export const FOGO_FRAMES = [
     [

@@ -1,7 +1,7 @@
-import { FOGO_FRAMES } from "./fogo.js";
+import { COMPUTACAO_FRAMES } from "./frames/computacao.js";
 import { Ponto } from "./objects.js";
 
-let LENGTH = 30;
+let LENGTH = 61;
 let OBJETO = [];
 let DELAY = 100;
 let ANIMATE_MODE = 0; // INFINITE
@@ -9,7 +9,7 @@ let ANIMATE_MODE = 0; // INFINITE
 function criarGrade(length = LENGTH) {
     const table = document.getElementById("grade");
     let grade = "";
-    for (let y = 1; y <= length; y++) {
+    for (let y = 1; y <= 30; y++) {
         grade += "<tr>";
         for (let x = 1; x <= length; x++) {
             grade += `<td data-x="${x}" data-y="${y}" title='(${x},${y})'></td>`;
@@ -89,19 +89,10 @@ async function desenharFrames(frames = []) {
     }
 }
 
-async function animar() {
+async function animar(frames = []) {
     while (ANIMATE_MODE == 0) {
-        await desenharFrames(FOGO_FRAMES);
+        await desenharFrames(frames);
     }
 }
 
-animar();
-
-// const btnPrint = document.getElementById("print");
-// btnPrint.addEventListener("click", _ => {
-//     let m = ""
-//     for (let p of OBJETO) {
-//         m += "new Ponto(" + p.x + ", " + p.y + ", " + p.color + "),\n";
-//     }
-//     console.log(m)
-// })
+animar(COMPUTACAO_FRAMES);
