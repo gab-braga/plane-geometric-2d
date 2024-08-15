@@ -9,7 +9,7 @@ Plano Geométrico 2D é uma ferramenta inspirada pela disciplina de Computação
 * JavaScript
 
 ## Visualização
-[https://f-gabriel-braga.github.io/plane-geometric-2d/](https://f-gabriel-braga.github.io/plane-geometric-2d/)
+[https://gab-braga.github.io/plane-geometric-2d/](https://gab-braga.github.io/plane-geometric-2d/)
 ![plane-geometric-2d](https://user-images.githubusercontent.com/66652642/220803661-c5c17e26-ddb6-43cb-b541-1c6ff2541020.png)
 
 ## Objetos
